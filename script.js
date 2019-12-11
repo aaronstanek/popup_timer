@@ -49,7 +49,9 @@ function establishState(s) {
         setDisplay(s["mode"]);
         if (s["mode"] == "waiting") {
             if (s["value"]) {
-                window.open('/popup', '_blank', 'height=300,width=300,menubar=0,status=0,toolbar=0', false);
+                var h = window.screen.height;
+                var w = window.screen.width;
+                window.open('/popup', '_blank', 'height='+h+',width='+w+',menubar=0,status=0,toolbar=0', false);
             }
         }
     }
@@ -75,6 +77,26 @@ function PythonAlive() {
     xhttp.send();
 }
 
+function PopupButton() {
+    CLICKCOUNT += 1;
+    if (CLICKCOUNT >= 3) {
+        window.close();
+    }
+    else {
+        var b = document.getElementById("b");
+        var c = b.getBoundingClientRect();
+        b.style.position = "absolute";
+        var left = window.innerWidth - c.width;
+        left *= Math.random();
+        b.style.left = left + "px";
+        var top = window.innerHeight - c.height;
+        top *= Math.random();
+        b.style.top = top + "px";
+    }
+}
+
 function startPopup() {
     setInterval(PythonAlive,500);
+    CLICKCOUNT = -1;
+    PopupButton();
 }
