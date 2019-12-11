@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script src="script.js"></script>
+    </head>
+    <body>
+        <span id="menu">
+            <input id="i" type="text">
+            <br><br>
+            <input type="button" value="GO" onclick="PythonInput_go()">
+        </span>
+        <span id="running">
+            <span id="tr"></span>
+            <br><br>
+            <input type="button" value="PAUSE" onclick="PythonInput_pause()">
+            <input type="button" value="STOP" onclick="PythonInput_stop()">
+        </span>
+        <span id="pause">
+            <span id="tp"></span>
+            <br><br>
+            <input type="button" value="UNPAUSE" onclick="PythonInput_unpause()">
+            <input type="button" value="STOP" onclick="PythonInput_stop()">
+        </span>
+        <span id="waiting">
+            WAITING FOR POPUP TO CLOSE
+        </span>
+        <script>startMain()</script>
+    </body>
+</html>
